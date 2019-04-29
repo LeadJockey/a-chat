@@ -1,0 +1,27 @@
+{
+  "name": "a-chat",
+  "version": "1.0.0",
+  "description": "chat server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/chat-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeadJockey/a-chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeadJockey/a-chat/issues"
+  },
+  "homepage": "https://github.com/LeadJockey/a-chat#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
