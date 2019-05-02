@@ -7,7 +7,7 @@ class Page extends Component {
     <div>
       <h1>Project Home</h1>
       {/* Link to List.js */}
-      <Link to={'./list'}>
+      <Link to={'/list'}>
         <button variant="raised">
             My List
         </button>

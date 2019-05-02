@@ -1,11 +1,20 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./components/App";
+import { Provider } from "mobx-react";
+import DevTools from "mobx-react-devtools";
+import RootStore from "./stores";
+import App from "./pages/App";
+
+const store = new RootStore();
+const rootEl = document.getElementById("app");
 
 render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("app")
+  <Provider {...store}>
+    <BrowserRouter>
+      <App />
+      <DevTools />
+    </BrowserRouter>
+  </Provider>,
+  rootEl
 );

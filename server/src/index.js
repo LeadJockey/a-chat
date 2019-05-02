@@ -12,8 +12,6 @@ const PORT = process.env.PORT || 9000
 
 app.use(cors());
 app.use("/", express.static(paths.public));
-app.use('*', (req,res) =>{
-  res.sendFile(paths.index);
-});
+app.use('*', (req,res) =>res.sendFile(paths.index));
 
 server.listen(PORT, () => console.log(`server listening on port ${PORT}`));
