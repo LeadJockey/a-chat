@@ -14,4 +14,13 @@ app.use(cors());
 app.use("/", express.static(paths.public));
 app.use('*', (req,res) =>res.sendFile(paths.index));
 
+io.sockets.on('connection', ()=>{
+  console.log('connected');
+
+  setTimeout(()=>{
+    io.emit('test', 'hello client')
+  },2000)
+  
+})
+
 server.listen(PORT, () => console.log(`server listening on port ${PORT}`));

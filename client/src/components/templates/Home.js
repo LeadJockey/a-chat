@@ -6,7 +6,8 @@ class Home extends React.Component {
     return (
       <div>
         <h2>HOME</h2>
-        <Link to={"/counter"}>go to counter</Link>
+        <Link to={"/counter"}>COUNTER</Link><br/>
+        <Link to={"/chat"}>CHAT</Link>
       </div>
     );
   }
