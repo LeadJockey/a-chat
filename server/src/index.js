@@ -11,8 +11,8 @@ const io = socketIO(server);
 const PORT = process.env.PORT || 9000;
 
 app.use(cors());
-app.use("/", express.static(paths.public));
-app.use("*", (req, res) => res.sendFile(paths.index));
+app.use("/static", express.static(paths.public));
+app.get("*", (req, res) => res.sendFile(paths.index));
 
 io.sockets.on("connection", socket => {
   console.log("connected");

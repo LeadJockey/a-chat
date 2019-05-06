@@ -1,35 +1,40 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const constant = require("./src/utils/constants");
 
-const port = process.env.PORT || 8080;
+const CLIENT_PORT = constant.CLIENT_PORT;
+const PROXY_DOMAIN = `http://${constant.SERVER_DOMAIN}`
+const ENTRY_PATH = path.join(__dirname, "src", "index.js");
+const COUTPUT_PATH = path.join(__dirname, "..", "server", "public");
 
 module.exports = {
   mode: "development",
-  entry: path.join(__dirname, "src", "index.js"),
+  entry: ENTRY_PATH,
   output: {
-    path: path.join(__dirname, "..", "server", "public"),
-    filename: "bundle.[hash].js"
+    path: COUTPUT_PATH,
+    publicPath: "/static/",
+    filename: "bundle.[name].js"
   },
   devtool: "inline-source-map",
   devServer: {
-    host: "localhost",
-    port: port,
+    port: CLIENT_PORT,
     open: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      "*": PROXY_DOMAIN
+    }
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, 
-        use: ["babel-loader"] 
-    },
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ["babel-loader"] },
       {
         test: /\.(css|scss)$/,
         use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-        loaders: ['file-loader']
+        loaders: ["file-loader"]
       }
     ]
   },

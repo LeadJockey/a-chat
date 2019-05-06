@@ -1,34 +1,41 @@
 import React from "react";
-import io from "socket.io-client";
+import { Link } from "react-router-dom";
 
-const SERVER_PORT = "localhost:9000";
+const data = [
+  {
+    roomId: 1,
+    title: "어디한번 놀아보자"
+  },
+  {
+    roomId: 2,
+    title: "도르트문트 소리질러"
+  },
+  {
+    roomId: 3,
+    title: "로동의 댓가란"
+  },
+  {
+    roomId: 4,
+    title: "이게 다 뭐냐"
+  }
+];
 
 class Chat extends React.Component {
-  createBtn = React.createRef();
-  socket = io(SERVER_PORT);
-
-  createRoom = () => {
-    console.log("createRoom called");
-    this.socket.on("test", msg => console.log("msg", msg));
-    this.socket.emit("JOIN::ROOM", {
-      id: 1,
-      title: "unnamed",
-      pwd: "1234",
-      isLock: false
-    });
+  renderChatRoom = ({ roomId, title }) => {
+    return (
+      <li key={roomId}>
+        <Link to={`/chat/${roomId}`}>{title}</Link>
+      </li>
+    );
   };
 
-  componentDidMount() {
-    this.socket.on("test", msg => console.log("msg", msg));
-    this.socket.on("JOIN::ROOM", msg => console.log("msg", msg));
-  }
   render() {
     return (
-      <div>
-        <h2>Chat</h2>
-        <button ref={this.createBtn} onClick={this.createRoom}>
-          CREATE ROOM
-        </button>
+      <div className="tmpl_chat">
+        <h2 className="tit_tmpl">Chat</h2>
+        <ul className="list_chat">
+          {data.map(item => this.renderChatRoom(item))}
+        </ul>
       </div>
     );
   }
