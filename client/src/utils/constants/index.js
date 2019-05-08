@@ -1,7 +1,16 @@
-const CLIENT_PORT = process.env.PORT || 8000;
-const SERVER_DOMAIN = "localhost:9000";
+const CLIENT_PORT = 8000;
+const SERVER_PORT = 9000;
+const PROTOCOL = "http://";
+const DOMAIN = "172.28.31.239";
+const SERVER_DOMIAN_URI = PROTOCOL + DOMAIN + ":" + SERVER_PORT;
+const CLIENT_DOMIAN_URI = PROTOCOL + DOMAIN + ":" + CLIENT_PORT;
+//API
+const API_V1_CHAT = `${SERVER_DOMIAN_URI}/api/v1/chat`;
 
 module.exports = {
   CLIENT_PORT,
-  SERVER_DOMAIN
+  SERVER_PORT,
+  SERVER_DOMIAN_URI,
+  CLIENT_DOMIAN_URI,
+  API_V1_CHAT
 };

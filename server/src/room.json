@@ -1,0 +1,19 @@
+{
+  "roomList":[
+    {
+      "id": 1,
+      "title": "test chat room1",
+      "members": ["shawn", "justin"]
+    },
+    {
+      "id": 2,
+      "title": "test chat room2",
+      "members": ["shawn"]
+    },
+    {
+      "id": 3,
+      "title": null,
+      "members": []
+    }
+  ]
+}

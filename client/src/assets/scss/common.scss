@@ -37,6 +37,10 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
+a{
+	color:#444;
+	text-decoration:none
+}
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -46,14 +50,36 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-/* chat */
-.tmpl_chat {
-  .list_chat li{
-    background-color:#efefef;
-    margin-bottom:10px;
-    padding:10px;
-    font-size:20px;
-  }
+.wrap_app{
+	padding:20px;
+	.tit_app{
+		display:inline-block;
+		margin-bottom:20px;
+		font-size:20px;
+	}
+	.tit_comp{
+		display:inline-block;
+		padding:0 10px 10px 0;
+		font-size:20px;
+	}
+	.comp_frame{
+		padding:20px;
+		border: 1px solid #efefef;
+		box-sizing:border-box;
+	}
 }
+
+.comp_chat_robby{
+	.list_room li{
+		padding:20px;
+		margin-bottom:20px;
+		background-color:#efefef;
+	}
+}
+
+.comp_chat_room{
+	
+}
+
+
 

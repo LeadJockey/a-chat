@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const constant = require("./src/utils/constants");
 
 const CLIENT_PORT = constant.CLIENT_PORT;
-const PROXY_DOMAIN = `http://${constant.SERVER_DOMAIN}`
+const PROXY_DOMAIN = constant.SERVER_DOMIAN_URI
 const ENTRY_PATH = path.join(__dirname, "src", "index.js");
 const COUTPUT_PATH = path.join(__dirname, "..", "server", "public");
 
