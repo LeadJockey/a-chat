@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router";
 
-import Lobby from "../chat/Lobby";
-import Room from "../chat/Room";
+import Lobby from "./../chat/Lobby";
+import Room from "./../chat/Room";
 
-import "./../assets/scss/common.scss";
+import "./../../assets/scss/common.scss";
 
 class App extends Component {
   render() {

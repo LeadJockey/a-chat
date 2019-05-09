@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "mobx-react";
 import DevTools from "mobx-react-devtools";
 import RootStore from "./stores";
-import App from "./pages/App";
+import App from "./components/pages/App";
 
 const store = new RootStore();
 const rootEl = document.getElementById("app");
