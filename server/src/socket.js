@@ -24,7 +24,7 @@ const createSocketData = (io, socket, data) => {
 
 const bindSocket = io => {
   io.sockets.on("connection", socket => {
-    
+    const randomColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
     console.log("sockets ready");
     socket.on(JOIN_ROOM_CLIENT, data => {
       const { roomId } = data;
@@ -33,7 +33,7 @@ const bindSocket = io => {
           .in(roomId)
           .emit(
             MSG_FROM_SERVER,
-            createSocketData(io, socket, { roomId, msg: "connected" })
+            createSocketData(io, socket, { roomId, msg: "connected", color:randomColor})
           );
       });
       socket.on("disconnect", () => {
@@ -41,16 +41,16 @@ const bindSocket = io => {
           .to(roomId)
           .emit(
             MSG_FROM_SERVER,
-            createSocketData(io, socket, { roomId, msg: "left" })
+            createSocketData(io, socket, { roomId, msg: "left" , color:randomColor})
           );
       });
     });
     
     socket.on(MSG_FROM_CLIENT, data => {
-      const { roomId } = data;
+      const { roomId, msg } = data;
       io.sockets
         .in(roomId)
-        .emit(MSG_FROM_SERVER, createSocketData(io, socket, data));
+        .emit(MSG_FROM_SERVER, createSocketData(io, socket, {roomId, msg, color:randomColor}));
     });
   });
 };

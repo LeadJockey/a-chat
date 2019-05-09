@@ -3,80 +3,198 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-a{
-	color:#444;
-	text-decoration:none
+a {
+  color: #444;
+  text-decoration: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-.wrap_app{
-	padding:20px;
-	.tit_app{
-		display:inline-block;
-		margin-bottom:20px;
-		font-size:20px;
-	}
-	.tit_comp{
-		display:inline-block;
-		padding:0 10px 10px 0;
-		font-size:20px;
-	}
-	.comp_frame{
-		padding:20px;
-		border: 1px solid #efefef;
-		box-sizing:border-box;
-	}
-}
-
-.comp_chat_robby{
-	.list_room li{
-		padding:20px;
-		margin-bottom:20px;
-		background-color:#efefef;
-	}
+.wrap_app {
+  padding: 20px;
+  .tit_app {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .tit_comp {
+    display: inline-block;
+    padding: 0 10px 10px 0;
+    font-size: 20px;
+  }
+  .comp_frame {
+    padding: 20px;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+  }
 }
 
+.comp_chat_robby {
+  .list_room li {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #efefef;
+  }
+}
+.comp_chat_room {
+	background-color: #090c3d;
+	color: #efefef;
+	.btn_leave{
+		font-weight: 800;
+		color:#ca59ff;
+	}
+  .box_chat {
+    overflow: hidden;
+		padding: 10px;
+		.btn_send {
+			float: left;
+			width:160px;
+			height:22px;
+			margin-right:20px;
+    }
+    .input_chat {
+			float: left;
+			width:calc(100% - 188px);
+			height:16px;
+		}
+  }
+}
 
+.comp_chat_message {
+  padding: 10px;
+  text-align: left;
 
-
+  span {
+    display: inline-block;
+  }
+  .txt_time {
+    width: 60px;
+  }
+  .text_ip {
+		width: 120px;
+	}
+  .txt_msg {
+    color: #efefef;
+  }
+}

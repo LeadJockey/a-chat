@@ -17,7 +17,7 @@ class Room extends Component {
     this.state = { messages: [] };
     this.socket = io.connect(SERVER_DOMIAN_URI);
     this.socket.on(MSG_FROM_SERVER, opts => {
-      console.table(Object.assign({ eventType:MSG_FROM_SERVER }, opts));
+      console.table(Object.assign({ eventType: MSG_FROM_SERVER }, opts));
       this.setState({ messages: this.state.messages.concat(opts) });
     });
     this.socket.emit(JOIN_ROOM_CLIENT, {
@@ -44,27 +44,28 @@ class Room extends Component {
     this.sendMsg();
   };
 
-  renderMessage = ({ id, msg }) => {
-    return <Message key={id} content={msg} />;
-  };
+  renderMessage = data => <Message key={data.id} data={data} />;
 
   render() {
     const { messages } = this.state;
     return (
       <div className="comp_frame comp_chat_room">
-        <strong className="tit_comp">채팅방</strong>
-        <Link to={"/chat"}>LEAVE ==></Link>
+        <strong className="tit_comp">CHAT ROOM</strong>
+        <Link className="btn_leave" to={"/chat"}>
+          Leave this room
+        </Link>
         <div className="cont_chat">{messages.map(this.renderMessage)}</div>
-        <div>
+        <div className="box_chat">
+          <button className="btn_send" type="button" onClick={this.sendMsg}>
+            Send Message
+          </button>
           <input
+            className="input_chat"
             type="text"
             placeholder="..."
             ref={this.input}
             onKeyUp={this.onEnterSendMsg}
           />
-          <button type="button" onClick={this.sendMsg}>
-            SEND
-          </button>
         </div>
       </div>
     );
