@@ -33,7 +33,7 @@ const bindSocket = io => {
           .in(roomId)
           .emit(
             MSG_FROM_SERVER,
-            createSocketData(io, socket, { roomId, msg: "connected", color:randomColor})
+            createSocketData(io, socket, { roomId, msg: "---------## [SYSTEM] : JOIN THIS ROOM ##---------", color:randomColor})
           );
       });
       socket.on("disconnect", () => {
@@ -41,7 +41,7 @@ const bindSocket = io => {
           .to(roomId)
           .emit(
             MSG_FROM_SERVER,
-            createSocketData(io, socket, { roomId, msg: "left" , color:randomColor})
+            createSocketData(io, socket, { roomId, msg: "---------## [SYSTEM] :  LEFT THIS ROOM ##---------" , color:randomColor})
           );
       });
     });
